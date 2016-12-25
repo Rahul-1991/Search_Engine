@@ -1,6 +1,7 @@
 from config import Config
 import pika
 
+
 class RabbitMQConnection(object):
 
     def get_rabbitmq_connection(self):
@@ -10,5 +11,15 @@ class RabbitMQConnection(object):
         return channel
 
 
-def print_to_file(data):
-    pass
+def get_read_handle(filename):
+    return open(filename, 'r')
+
+
+def get_write_handle(filename):
+    return open(filename, 'wa')
+
+
+def close_file_handle(handle):
+    handle.close()
+
+
